@@ -42,7 +42,8 @@
   <ItemGroup>
     <Compile Include="Domain\Log.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Publish.cs" />
+    <Compile Include="Push.cs" />
+    <Compile Include="Pull.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\StrategyAndCommand.Core\StrategyAndCommand.Core.csproj">
