@@ -9,7 +9,7 @@ namespace StrategyAndCommand.Logic
     {
         public bool Execute(Log log)
         {
-            return GetAndExecute(() => GenerateCommand(log), log);
+            return GetCommandAndExecute(() => GenerateCommand(log), log);
         }
 
         private static ICommand<Log, bool> GenerateCommand(Log log)

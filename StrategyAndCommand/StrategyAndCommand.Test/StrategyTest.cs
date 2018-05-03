@@ -31,7 +31,7 @@ namespace StrategyAndCommand.Test
             };
 
             var logs = new List<Log>() { log, log1 };
-            Assert.IsFalse(string.IsNullOrWhiteSpace(new Push(logs).Execute().ToString()));
+            Assert.IsFalse(string.IsNullOrWhiteSpace(new Push().Execute(logs).ToString()));
         }
 
         [TestMethod]

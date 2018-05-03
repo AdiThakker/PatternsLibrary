@@ -13,13 +13,8 @@ namespace StrategyAndCommand.Logic
     {
         private Dictionary<string, ICommand<Log, List<string>>> _commands = new Dictionary<string, ICommand<Log, List<string>>>();
 
-        public List<Log> Logs { get; }
-
-        public Push(List<Log> logs)
-            : base()
+        public Push()            
         {
-            this.Logs = logs ?? throw new ArgumentNullException(nameof(logs));
-
             _commands.Add("Add", new Command<Log, List<string>>((log) =>
             {
                 StringBuilder builder = new StringBuilder();
@@ -42,11 +37,14 @@ namespace StrategyAndCommand.Logic
             }));
         }
 
-        public StringBuilder Execute()
+        public StringBuilder Execute(List<Log> logs)
         {
-            return this.Logs.Aggregate(new StringBuilder(), (results, log) =>
+            if (logs == null)
+                throw new ArgumentNullException(nameof(logs));
+
+            return logs.Aggregate(new StringBuilder(), (results, log) =>
             {
-                results.Append(GetAndExecute(() => _commands[log.Action], log)); // Not safe for Key access
+                results.Append(GetCommandAndExecute(() => _commands[log.Action], log)); // Not safe for Key access
                 return results;
             });
         }
