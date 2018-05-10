@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace StrategyAndCommand.Logic.Domain
+namespace Patterns.Infrastructure.Domain.Entities
 {
     public class Log
     {

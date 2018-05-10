@@ -1,8 +1,8 @@
-﻿using StrategyAndCommand.Core.Command.Interfaces;
-using StrategyAndCommand.Core.Strategy.Interfaces;
+﻿using Patterns.Core.Command.Interfaces;
+using Patterns.Core.Strategy.Interfaces;
 using System;
 
-namespace StrategyAndCommand.Core.Strategy
+namespace Patterns.Core.Strategy
 {
     public class Strategy<TCommand, TInput, TOutput> : IStrategy<TCommand, TInput, TOutput>
                                                         where TCommand : ICommand<TInput, TOutput>

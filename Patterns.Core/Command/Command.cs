@@ -1,7 +1,7 @@
-﻿using StrategyAndCommand.Core.Command.Interfaces;
+﻿using Patterns.Core.Command.Interfaces;
 using System;
 
-namespace StrategyAndCommand.Core.Command
+namespace Patterns.Core.Command
 {
     public class Command<TInput, TOutput> : ICommand<TInput, TOutput> where TInput : class
     {

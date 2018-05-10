@@ -1,9 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using StrategyAndCommand.Logic;
-using StrategyAndCommand.Logic.Domain;
+using Patterns.Infrastructure.Domain.Entities;
+using Patterns.Infrastructure.Domain.Implementations.Strategy;
 using System.Collections.Generic;
 
-namespace StrategyAndCommand.Test
+namespace Patterns.Test
 {
     [TestClass]
     public class StrategyTest
@@ -18,7 +18,7 @@ namespace StrategyAndCommand.Test
                 {
                     new ChangeLog("User", "1", "2"), new ChangeLog("Client", "Client1", "Client2")
                 },
-                TableName = "User"
+                TableName = "Table_Y"
             };
             var log1 = new Log()
             {
@@ -27,7 +27,7 @@ namespace StrategyAndCommand.Test
                 {
                     new ChangeLog("AttributeID", "1", "3"), new ChangeLog("ClientID", "700", "800")
                 },
-                TableName = "ClientAttribute"
+                TableName = "Table_Y"
             };
 
             var logs = new List<Log>() { log, log1 };
@@ -43,7 +43,7 @@ namespace StrategyAndCommand.Test
                 {
                     new ChangeLog("User", "1", "2"), new ChangeLog("Client", "Client1", "Client2")
                 },
-                TableName = "Payor"
+                TableName = "Table_X"
             };
 
             Assert.IsTrue(new Pull().Execute(log));

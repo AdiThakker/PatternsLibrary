@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("StrategyAndCommand.Logic")]
+[assembly: AssemblyTitle("Patterns.Infrastructure")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("StrategyAndCommand.Logic")]
+[assembly: AssemblyProduct("Patterns.Infrastructure")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("d6acf35d-4e1c-4542-bb3c-e8d5f7c43218")]
+[assembly: Guid("30d415ea-9280-42ba-8952-49b5c62380c0")]
 
 // Version information for an assembly consists of the following four values:
 //

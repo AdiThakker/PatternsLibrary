@@ -1,7 +1,7 @@
-﻿using StrategyAndCommand.Core.Command.Interfaces;
+﻿using Patterns.Core.Command.Interfaces;
 using System;
 
-namespace StrategyAndCommand.Core.Strategy.Interfaces
+namespace Patterns.Core.Strategy.Interfaces
 {
     public interface IStrategy<TCommand, TInput, TOutput>
                                         where TCommand : ICommand<TInput, TOutput>

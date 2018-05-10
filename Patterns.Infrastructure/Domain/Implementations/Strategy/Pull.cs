@@ -1,9 +1,9 @@
-﻿using StrategyAndCommand.Core.Command;
-using StrategyAndCommand.Core.Command.Interfaces;
-using StrategyAndCommand.Core.Strategy;
-using StrategyAndCommand.Logic.Domain;
+﻿using Patterns.Core.Command;
+using Patterns.Core.Command.Interfaces;
+using Patterns.Core.Strategy;
+using Patterns.Infrastructure.Domain.Entities;
 
-namespace StrategyAndCommand.Logic
+namespace Patterns.Infrastructure.Domain.Implementations.Strategy
 {
     public class Pull : Strategy<ICommand<Log, bool>, Log, bool>
     {
@@ -16,12 +16,12 @@ namespace StrategyAndCommand.Logic
         {
             switch (log.TableName)
             {
-                case "Attribute":
-                case "Payor":
+                case "Table_X":
+                case "Table_Y":
                     return new Command<Log, bool>(logItem =>
-                        {
-                            return true;
-                        });
+                    {
+                        return true;
+                    });
                 default:
                     return new Command<Log, bool>(logItem =>
                     {
