@@ -20,5 +20,10 @@ namespace Patterns.Core.Command
             // delegate
             return this._strategy(input);
         }
+
+        public virtual bool CanHandle(TInput input)
+        {
+            return true;
+        }
     }
 }

@@ -5,10 +5,15 @@ using System.Text;
 
 namespace Patterns.Infrastructure.Domain.Implementations.Command
 {
-    class Add : Command<Log, StringBuilder>
+    public class Add : Command<Log, StringBuilder>
     {
         public Add(Func<Log, StringBuilder> strategy) : base(strategy)
         {
+        }
+
+        public override bool CanHandle(Log input)
+        {
+            return input.Action.Equals("Add", StringComparison.OrdinalIgnoreCase);
         }
     }
 }

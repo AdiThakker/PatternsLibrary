@@ -41,16 +41,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Domain\Entities\Log.cs" />
+    <Compile Include="Domain\Implementations\ChainOfResponsibility\PushChain.cs" />
     <Compile Include="Domain\Implementations\Command\Add.cs" />
     <Compile Include="Domain\Implementations\Command\Delete.cs" />
     <Compile Include="Domain\Implementations\Command\Update.cs" />
+    <Compile Include="Domain\Implementations\State\PushState.cs" />
     <Compile Include="Domain\Implementations\Strategy\Pull.cs" />
     <Compile Include="Domain\Implementations\Strategy\Push.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Domain\Implementations\State\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Patterns.Core\Patterns.Core.csproj">
       <Project>{F09D8F06-94E8-4E47-A755-CDF1A5A95C2A}</Project>

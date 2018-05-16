@@ -10,5 +10,10 @@ namespace Patterns.Infrastructure.Domain.Implementations.Command
         public Delete(Func<Log, StringBuilder> strategy) : base(strategy)
         {
         }
+
+        public override bool CanHandle(Log input)
+        {
+            return input.Action.Equals("Delete", StringComparison.OrdinalIgnoreCase);
+        }
     }
 }

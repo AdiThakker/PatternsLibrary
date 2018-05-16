@@ -40,10 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChainOfResponsibility\ChainOfResponsibility.cs" />
+    <Compile Include="ChainOfResponsibility\Interfaces\IChainOfResponsibility.cs" />
     <Compile Include="Command\Command.cs" />
     <Compile Include="Command\Interfaces\ICommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="State\Interfaces\IStateMachine.cs" />
     <Compile Include="State\StateMachine.cs" />
     <Compile Include="Strategy\Interfaces\IStrategy.cs" />
     <Compile Include="Strategy\Strategy.cs" />
