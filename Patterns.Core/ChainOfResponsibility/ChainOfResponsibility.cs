@@ -1,12 +1,13 @@
 ﻿using Patterns.Core.ChainOfResponsibility.Interfaces;
 using Patterns.Core.Command.Interfaces;
+using Patterns.Core.Decorator;
 using System;
 using System.Collections.Generic;
 
 namespace Patterns.Core.ChainOfResponsibility
 {
     public class ChainOfResponsibility<TCommands, TInput, TOutput> : IChainOfResponsibility<TCommands, TInput, TOutput>
-                                                                            where TCommands : IEnumerable<ICommand<TInput, TOutput>>
+                                                                            where TCommands : IEnumerable<DecoratedCommand<TInput, TOutput>>
                                                                             where TInput : class
     {
         public TCommands Commands { get; }

@@ -1,14 +1,14 @@
 ﻿using Patterns.Core.ChainOfResponsibility;
-using Patterns.Core.Command.Interfaces;
+using Patterns.Core.Decorator;
 using Patterns.Infrastructure.Domain.Entities;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Patterns.Infrastructure.Domain.Implementations.ChainOfResponsibility
 {
-    public class PushChain : ChainOfResponsibility<List<ICommand<Log, StringBuilder>>, Log, StringBuilder>
+    public class PushChain : ChainOfResponsibility<List<DecoratedCommand<Log, StringBuilder>>, Log, StringBuilder>
     {
-        public PushChain(List<ICommand<Log, StringBuilder>> commands) : base(commands)
+        public PushChain(List<DecoratedCommand<Log, StringBuilder>> commands) : base(commands)
         {
         }
     }
