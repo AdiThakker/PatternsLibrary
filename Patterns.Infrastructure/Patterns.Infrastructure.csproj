@@ -49,6 +49,7 @@
     <Compile Include="Domain\Implementations\Decorator\DecoratedAdd.cs" />
     <Compile Include="Domain\Implementations\Decorator\DecoratedDelete.cs" />
     <Compile Include="Domain\Implementations\Decorator\DecoratedUpdate.cs" />
+    <Compile Include="Domain\Implementations\Mediator\CommandMediator.cs" />
     <Compile Include="Domain\Implementations\State\PushState.cs" />
     <Compile Include="Domain\Implementations\Strategy\Pull.cs" />
     <Compile Include="Domain\Implementations\Strategy\Push.cs" />

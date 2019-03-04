@@ -4,13 +4,15 @@ using Patterns.Core.Mediator.Interfaces;
 
 namespace Patterns.Core.Mediator
 {
-    public class CommandHandler : ICommandHandler
+    public class CommandLogger : ICommandHandler
     {
         public TResponse Handle<TType, TRequest, TResponse>(TType command, TRequest request)
             where TType : ICommand<TRequest, TResponse>
             where TRequest : class
         {
-            throw new NotImplementedException();
+            // TODO: Add Logging behavior
+            var commandInstance = (ICommand <TRequest, TResponse>)Activator.CreateInstance(command.GetType());
+            return commandInstance.Execute(request);
         }
     }
 }
