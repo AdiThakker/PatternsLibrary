@@ -16,10 +16,11 @@ namespace Patterns.Test
     public class MediatorTests
     {
         [TestMethod]
+
         public void Test_Mediator_Command_Add()
         {
-            //var response = CommandMediator.Handle<Add, Log, StringBuilder>(default(Add), new Log());
-            //Assert.IsTrue(response.ToString().Equals("Add"));
+            //var response = Mediator.Handle<Add, Log, StringBuilder>(new Log());
+            //Assert.IsTrue(string.IsNullOrEmpty(response.ToString()));
         }
 
         [TestMethod]
