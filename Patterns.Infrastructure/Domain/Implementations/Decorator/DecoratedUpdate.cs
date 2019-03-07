@@ -7,6 +7,10 @@ namespace Patterns.Infrastructure.Domain.Implementations.Decorator
 {
     public class DecoratedUpdate : DecoratedCommand<Log, StringBuilder>
     {
+        public DecoratedUpdate() : base((_) => new StringBuilder("DecoratedUpdate"))
+        {
+        }
+
         public DecoratedUpdate(Func<Log, StringBuilder> strategy) : base(strategy)
         {
         }

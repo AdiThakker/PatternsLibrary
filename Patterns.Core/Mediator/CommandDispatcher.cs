@@ -18,15 +18,16 @@ namespace Patterns.Core.Mediator
             dispatchers = getDispatchers();
         }
 
-        public TResponse Dispatch<TType, TRequest, TResponse>(TType command, TRequest request)
+        public TResponse Dispatch<TType, TRequest, TResponse>(TRequest request)
             where TType : ICommand<TRequest, TResponse>
             where TRequest : class
         {
             if (dispatchers == null)
                 throw new InvalidOperationException("Invalid state. Cannot dispatch this command.");
 
+            TType command = default(TType);
             if (dispatchers.TryGetValue(command.GetType(), out ICommandHandler handler))
-            return handler.Handle<TType, TRequest, TResponse>(command, request);
+            return handler.Handle<TType, TRequest, TResponse>(request);
 
             return default(TResponse);
         }

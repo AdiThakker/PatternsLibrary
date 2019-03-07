@@ -7,6 +7,10 @@ namespace Patterns.Infrastructure.Domain.Implementations.Decorator
 {
     public class DecoratedDelete : DecoratedCommand<Log, StringBuilder>
     {
+        public DecoratedDelete() : base((_) => new StringBuilder("DecoratedDelete"))
+        {
+        }
+
         public DecoratedDelete(Func<Log, StringBuilder> strategy) : base(strategy)
         {
         }

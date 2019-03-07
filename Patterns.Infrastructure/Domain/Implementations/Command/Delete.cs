@@ -7,6 +7,10 @@ namespace Patterns.Infrastructure.Domain.Implementations.Command
 {
     public class Delete : Command<Log, StringBuilder>
     {
+        public Delete() : base((_) => new StringBuilder("Delete"))
+        {
+        }
+
         public Delete(Func<Log, StringBuilder> strategy) : base(strategy)
         {
         }

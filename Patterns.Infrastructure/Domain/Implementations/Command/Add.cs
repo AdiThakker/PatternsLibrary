@@ -7,6 +7,10 @@ namespace Patterns.Infrastructure.Domain.Implementations.Command
 {
     public class Add : Command<Log, StringBuilder>
     {
+        public Add() : base((_) => new StringBuilder("Add"))
+        {
+        }
+
         public Add(Func<Log, StringBuilder> strategy) : base(strategy)
         {
         }

@@ -7,6 +7,10 @@ namespace Patterns.Infrastructure.Domain.Implementations.Decorator
 {
     public class DecoratedAdd : DecoratedCommand<Log, StringBuilder>
     {
+        public DecoratedAdd() : base((_) => new StringBuilder("DecoratedAdd"))
+        {
+        }
+
         public DecoratedAdd(Func<Log, StringBuilder> strategy) : base(strategy)
         {
         }
