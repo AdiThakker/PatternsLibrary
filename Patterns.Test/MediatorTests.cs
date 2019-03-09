@@ -19,8 +19,8 @@ namespace Patterns.Test
 
         public void Test_Mediator_Command_Add()
         {
-            //var response = Mediator.Handle<Add, Log, StringBuilder>(new Log());
-            //Assert.IsTrue(string.IsNullOrEmpty(response.ToString()));
+            var response = new Mediator<Add, Log, StringBuilder>().Handle(new Log());
+            Assert.IsNull(response);
         }
 
         [TestMethod]

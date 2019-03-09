@@ -24,8 +24,7 @@ namespace Patterns.Core.Mediator
             if (dispatchers == null)
                 throw new InvalidOperationException("Invalid state. Cannot dispatch this command.");
 
-            TType command = default(TType);
-            if (dispatchers.TryGetValue(command.GetType(), out ICommandHandler handler))
+            if (dispatchers.TryGetValue(typeof(TType), out ICommandHandler handler))
             return handler.Handle<TType, TRequest, TResponse>(request);
 
             return default(TResponse);

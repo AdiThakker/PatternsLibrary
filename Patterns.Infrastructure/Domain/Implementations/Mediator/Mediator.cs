@@ -6,8 +6,12 @@ using Patterns.Core.Mediator.Interfaces;
 
 namespace Patterns.Infrastructure.Domain.Implementations.Mediator
 {
-    public class Mediator
+    public class Mediator<TType, TRequest, TResponse>
+        where TType : ICommand<TRequest, TResponse>
+        where TRequest : class
     {
+        TType command = default(TType);
+
         private static CommandDispatcher dispatcher  = new CommandDispatcher(() =>
             {
             var handlerLookup = new ConcurrentDictionary<Type, ICommandHandler>();
@@ -15,9 +19,7 @@ namespace Patterns.Infrastructure.Domain.Implementations.Mediator
             return handlerLookup;
         });
 
-        public static TResponse Handle<TType, TRequest, TResponse>(TRequest request)
-            where TType : ICommand<TRequest, TResponse>
-            where TRequest : class
+        public TResponse Handle(TRequest request)
         {
             return dispatcher.Dispatch<TType, TRequest, TResponse>(request);
         }
