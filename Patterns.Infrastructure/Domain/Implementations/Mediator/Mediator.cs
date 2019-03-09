@@ -10,8 +10,6 @@ namespace Patterns.Infrastructure.Domain.Implementations.Mediator
         where TType : ICommand<TRequest, TResponse>
         where TRequest : class
     {
-        TType command = default(TType);
-
         private static CommandDispatcher dispatcher  = new CommandDispatcher(() =>
             {
             var handlerLookup = new ConcurrentDictionary<Type, ICommandHandler>();
