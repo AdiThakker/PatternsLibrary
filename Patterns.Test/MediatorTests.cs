@@ -16,7 +16,6 @@ namespace Patterns.Test
     public class MediatorTests
     {
         [TestMethod]
-
         public void Test_Mediator_Command_Add()
         {
             var response = new Mediator().Handle<Add, Log, StringBuilder>(new Log());

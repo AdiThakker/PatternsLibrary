@@ -12,10 +12,12 @@ namespace Patterns.Infrastructure.Domain.Implementations.Mediator
     {
         private static CommandDispatcher dispatcher  = new CommandDispatcher(() =>
             {
-            var handlerLookup = new ConcurrentDictionary<Type, ICommandHandler>();
+                var handlerLookup = new ConcurrentDictionary<Type, ICommandHandler>();
+
                 handlerLookup.AddOrUpdate(typeof(Add), new CommandLogger(),  (_,logger) => logger);
                 handlerLookup.AddOrUpdate(typeof(DecoratedAdd), new CommandLogger(), (_, logger) => logger);
                 handlerLookup.AddOrUpdate(typeof(DecoratedUpdate), new CommandLogger(), (_, logger) => logger);
+
                 return handlerLookup;
         });
 
