@@ -18,7 +18,7 @@ namespace Patterns.Core.Mediator
         }
 
         public TResponse Dispatch<TType, TRequest, TResponse>(TRequest request)
-            where TType : ICommand<TRequest, TResponse>
+            where TType : ICommand<TRequest, TResponse>, new()
             where TRequest : class
         {
             if (dispatchers == null)

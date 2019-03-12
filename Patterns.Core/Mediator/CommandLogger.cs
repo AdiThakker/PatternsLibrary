@@ -7,10 +7,10 @@ namespace Patterns.Core.Mediator
     public class CommandLogger : ICommandHandler
     {
         public TResponse Handle<TType, TRequest, TResponse>(TRequest request)
-            where TType : ICommand<TRequest, TResponse>
+            where TType : ICommand<TRequest, TResponse>, new()
             where TRequest : class
         {
-            TType command = default(TType);
+            TType command = new TType();
 
             // TODO: Add Logging behavior
             var commandInstance = (ICommand <TRequest, TResponse>)Activator.CreateInstance(command.GetType());

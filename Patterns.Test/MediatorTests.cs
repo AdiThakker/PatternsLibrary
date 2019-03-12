@@ -20,14 +20,14 @@ namespace Patterns.Test
         public void Test_Mediator_Command_Add()
         {
             var response = new Mediator().Handle<Add, Log, StringBuilder>(new Log());
-            Assert.IsNull(response);
+            Assert.IsTrue(response.ToString().Equals("Add"));
         }
 
         [TestMethod]
         public void Test_Mediator_Command_DecoratorUpdate()
         {
-            //var response = CommandMediator.Handle<DecoratedUpdate, Log, StringBuilder>(new DecoratedUpdate(), new Log());
-            //Assert.IsTrue(response.ToString().Equals("DecoratedUpdate"));
+            var response = new Mediator().Handle<DecoratedUpdate, Log, StringBuilder>(new Log());
+            Assert.IsTrue(response.ToString().Equals("DecoratedUpdate"));
         }
     }
 }
