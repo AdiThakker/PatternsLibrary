@@ -1,6 +1,4 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
+﻿using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Patterns.Infrastructure.Domain.Implementations.Mediator;
 using Patterns.Infrastructure.Domain.Implementations.Command;

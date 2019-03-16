@@ -10,6 +10,7 @@ namespace Patterns.Infrastructure.Domain.Implementations.Mediator
 {
     public class Mediator
     {
+        // Setup dispatcher with DI
         private static CommandDispatcher dispatcher  = new CommandDispatcher(() =>
             {
                 var handlerLookup = new ConcurrentDictionary<Type, ICommandHandler>();
