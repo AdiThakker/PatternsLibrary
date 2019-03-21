@@ -45,7 +45,7 @@
     <Compile Include="ChainOfResponsibility\Interfaces\IChainOfResponsibility.cs" />
     <Compile Include="Command\Command.cs" />
     <Compile Include="Command\Interfaces\ICommand.cs" />
-    <Compile Include="Composite\CompositeCommandLogger.cs" />
+    <Compile Include="Composite\CompositeHandler.cs" />
     <Compile Include="Decorator\DecoratedCommand.cs" />
     <Compile Include="Factory\DependencyFactory.cs" />
     <Compile Include="Mediator\CommandDispatcher.cs" />
