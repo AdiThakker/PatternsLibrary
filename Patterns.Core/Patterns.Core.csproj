@@ -49,6 +49,7 @@
     <Compile Include="Decorator\DecoratedCommand.cs" />
     <Compile Include="Factory\DependencyFactory.cs" />
     <Compile Include="Mediator\CommandDispatcher.cs" />
+    <Compile Include="Mediator\CommandHandler.cs" />
     <Compile Include="Mediator\CommandLogger.cs" />
     <Compile Include="Mediator\Interfaces\ICommandDispatcher.cs" />
     <Compile Include="Mediator\Interfaces\ICommandHandler.cs" />
