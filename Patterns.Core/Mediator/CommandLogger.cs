@@ -19,6 +19,7 @@ namespace Patterns.Core.Mediator
 
             LogStatus.AppendLine($"Instantiating command {command.GetType()}");
 
+            //TODO : Move to extension method
             var commandInstance = (ICommand<TRequest, TResponse>)Activator.CreateInstance(command.GetType());
             var result = commandInstance.Execute(request);
 

@@ -12,6 +12,7 @@ namespace Patterns.Core.Mediator
         {
             TType command = new TType();
 
+            //TODO : Move to extension method
             var commandInstance = (ICommand<TRequest, TResponse>)Activator.CreateInstance(command.GetType());
             return commandInstance.Execute(request);
         }
