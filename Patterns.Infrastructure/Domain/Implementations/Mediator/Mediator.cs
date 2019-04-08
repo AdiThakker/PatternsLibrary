@@ -15,9 +15,9 @@ namespace Patterns.Infrastructure.Domain.Implementations.Mediator
             {
                 var handlerLookup = new ConcurrentDictionary<Type, ICommandHandler>();
 
-                handlerLookup.AddOrUpdate(typeof(Add), new CommandLogger(),  (_,logger) => logger);
-                handlerLookup.AddOrUpdate(typeof(DecoratedAdd), new CommandLogger(), (_, logger) => logger);
-                handlerLookup.AddOrUpdate(typeof(DecoratedUpdate), new CommandLogger(), (_, logger) => logger);
+                handlerLookup.AddOrUpdate(typeof(Add), new CommandHandler(),  (_,logger) => logger);
+                handlerLookup.AddOrUpdate(typeof(DecoratedAdd), new CommandHandlerAndLogger(), (_, logger) => logger);
+                handlerLookup.AddOrUpdate(typeof(DecoratedUpdate), new CommandHandlerAndLogger(), (_, logger) => logger);
 
                 return handlerLookup;
         });

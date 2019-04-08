@@ -5,11 +5,11 @@ using Patterns.Core.Mediator.Interfaces;
 
 namespace Patterns.Core.Mediator
 {
-    public class CommandLogger : ICommandHandler
+    public class CommandHandlerAndLogger : ICommandHandler
     {
         public StringBuilder LogStatus { get; private set; }
 
-        public CommandLogger() => LogStatus = new StringBuilder();
+        public CommandHandlerAndLogger() => LogStatus = new StringBuilder();
 
         public TResponse Handle<TType, TRequest, TResponse>(TRequest request)
             where TType : ICommand<TRequest, TResponse>, new()
