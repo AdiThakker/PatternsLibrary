@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using Patterns.Core.Command.Interfaces;
+using Patterns.Core.Composite;
 using Patterns.Core.Mediator;
 using Patterns.Core.Mediator.Interfaces;
 using Patterns.Infrastructure.Domain.Implementations.Command;
@@ -17,7 +19,10 @@ namespace Patterns.Infrastructure.Domain.Implementations.Mediator
 
                 handlerLookup.AddOrUpdate(typeof(Add), new CommandHandler(),  (_,logger) => logger);
                 handlerLookup.AddOrUpdate(typeof(DecoratedAdd), new CommandHandlerAndLogger(), (_, logger) => logger);
-                handlerLookup.AddOrUpdate(typeof(DecoratedUpdate), new CommandHandlerAndLogger(), (_, logger) => logger);
+
+                // Composite setup
+                List<ICommandHandler> handlers = new List<ICommandHandler>() { new CommandHandler(), new CommandHandlerAndLogger() };
+                handlerLookup.AddOrUpdate(typeof(DecoratedUpdate), new CompositeHandler(handlers), (_, logger) => logger);
 
                 return handlerLookup;
         });
