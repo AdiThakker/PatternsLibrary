@@ -21,6 +21,13 @@ namespace Patterns.Test
         }
 
         [TestMethod]
+        public void Test_Mediator_Command_DecoratorAdd()
+        {
+            var response = new Mediator().Handle<DecoratedAdd, Log, StringBuilder>(new Log());
+            Assert.IsTrue(response.ToString().Equals("DecoratedAdd"));
+        }
+
+        [TestMethod]
         public void Test_Mediator_Command_DecoratorUpdate()
         {
             var response = new Mediator().Handle<DecoratedUpdate, Log, StringBuilder>(new Log());

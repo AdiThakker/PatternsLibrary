@@ -17,12 +17,14 @@ namespace Patterns.Infrastructure.Domain.Implementations.Mediator
             {
                 var handlerLookup = new ConcurrentDictionary<Type, ICommandHandler>();
 
-                handlerLookup.AddOrUpdate(typeof(Add), new CommandHandler(),  (_,logger) => logger);
+                handlerLookup.AddOrUpdate(typeof(Add), new CommandHandler(),  (_,handler) => handler);
                 handlerLookup.AddOrUpdate(typeof(DecoratedAdd), new CommandHandlerAndLogger(), (_, logger) => logger);
 
                 // Composite setup
                 List<ICommandHandler> handlers = new List<ICommandHandler>() { new CommandHandler(), new CommandHandlerAndLogger() };
-                handlerLookup.AddOrUpdate(typeof(DecoratedUpdate), new CompositeHandler(handlers), (_, logger) => logger);
+                CompositeHandler compositeHandler = new CompositeHandler(handlers);
+
+                handlerLookup.AddOrUpdate(typeof(DecoratedUpdate), new CompositeHandler(handlers), (_, loggers) => loggers);
 
                 return handlerLookup;
         });
